@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import NotFound from "containers/404";
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import { AdminLayout } from "components/Layout";
+import Dashboard from "containers/Dashboard";
+import Products from "containers/Products";
+import Customers from "containers/Customers";
+import Orders from "containers/Orders";
+import Shipments from "containers/Shipments";
+import Transactions from "containers/Transactions";
+import Settings from "containers/Settings";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<AdminLayout />}>
+        <Route index element={<Dashboard />} />
+        <Route path="product" element={<Products />} />
+        <Route path="customer" element={<Customers />} />
+        <Route path="order" element={<Orders />} />
+        <Route path="shipment" element={<Shipments />} />
+        <Route path="transaction" element={<Transactions />} />
+        <Route path="setting" element={<Settings />} />
+      </Route>
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 }
 
