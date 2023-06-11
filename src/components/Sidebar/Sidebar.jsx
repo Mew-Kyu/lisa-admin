@@ -11,7 +11,7 @@ import { NavLink } from "react-router-dom";
 
 const StyledBar = styled.div`
   height: 100vh;
-  padding-top: 10%;
+  padding: 10px;
   text-align: center;
   .title {
     margin: 0;
@@ -27,7 +27,8 @@ const StyledBar = styled.div`
     align-items: center;
     justify-content: space-between;
   }
-  a, .logout {
+  a,
+  .logout {
     width: 60%;
     display: flex;
     align-items: center;
@@ -48,9 +49,20 @@ const StyledBar = styled.div`
     }
     color: #cdcdcd;
   }
+  a:hover,
+  .logout:hover {
+    svg {
+      path {
+        fill: #ff6f61;
+        stroke: #ff6f61;
+      }
+    }
+    color: #ff6f61;
+  }
   .active {
     svg {
       path {
+        fill: #ff6f61;
         stroke: #ff6f61;
       }
     }
